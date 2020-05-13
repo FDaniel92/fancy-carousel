@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>CAROUSEL</title>
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+            .carousel {
+                width: 100vw;
+                height: 100vh;
+                position: relative;
+            }
+            .carousel__wrapper {
+                margin: 0 auto;
+                width: 50vw;
+                height: 100vh;
+                position: relative;
+                overflow: hidden;
+                background: url('mac-frame.png');
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center;
+                z-index: 100;
+            }
+            .carousel__container {
+                width: 150vw;
+                height: 100vh;
+                position: absolute;
+                display: flex;
+                left: 0;
+                flex-direction: row;
+                transition: 0.5s ease-in-out;
+                z-index: 0;
+            }
+            .carousel__pages {
+                background: lightgrey;
+                opacity: 0.5;
+                position: absolute;
+                right: 37px;
+                top: 156px;
+                z-index: 10000;
+                padding: 20px 30px;
+            }
+            .carousel__pages p {
+                font-size: 30px;
+            }
+            .right-hide {
+                width: 37px;
+                height: 520px;
+                background: #0F0F0F;
+                position: absolute;
+                top: 150px;
+                z-index: 10000;
+            }
+            .left-hide {
+                width: 37px;
+                height: 520px;
+                background: black;
+                background-image: linear-gradient(#333333, #0F0F0F);
+                position: absolute;
+                top: 150px;
+                right: 0;
+                z-index: 10000;
+            }
+            .slide-first {
+                width: 50vw;
+                height: 100vh;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                align-content: center;
+                background: url('win1.jpg');
+                background-repeat: no-repeat;
+                background-size: 885px 497px;
+                background-position-y: 157px;
+                background-position-x: 37px;
+            }
+            .slide-second {
+                width: 50vw;
+                height: 100vh;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                align-content: center;
+                background: url('win2.jpg');
+                background-repeat: no-repeat;
+                background-size: 885px 497px;
+                background-position-y: 157px;
+                background-position-x: 37px;
+            }
+            .slide-third {
+                width: 50vw;
+                height: 100vh;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                align-content: center;
+                background: url('win3.jpg');
+                background-repeat: no-repeat;
+                background-size: 885px 497px;
+                background-position-y: 157px;
+                background-position-x: 37px;
+            }
+            .carousel__next {
+                font-size: 85px;
+                position: absolute;
+                right: 20px;
+                top: 400px;
+                cursor: pointer;
+            }
+            .carousel__prev {
+                font-size: 85px;
+                position: absolute;
+                left: 20px;
+                top: 400px;
+                cursor: pointer;
+            }
+            .slide p {
+                font-size: 40px;
+                background: lightgrey;
+                opacity: 0.8;
+                width: 100%;
+                text-align: center;
+                padding: 20px 0;
+                position: relative;
+                bottom: -125px;
+            }
+            .carousel__bullets {
+                width: 350px;
+                height: 35px;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                bottom: 272px;
+                right: 38px;
+            }
+            .carousel__bullets .bullet {
+                width: 25px;
+                height: 25px;
+                border: 2px solid white;
+                border-radius: 50%;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+            }
+            .carousel__bullets .bullet:nth-child(even) {
+                margin: 0 20px;
+            }
+            .bullet .active {
+                width: 15px;
+                height: 15px;
+                border-radius: 50%;
+                background: white;
+                position: relative;
+                left: 0;
+                transition: 0.4s ease-in-out;
+                z-index: 10000;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="carousel">
+            <div class="carousel__wrapper">
+                <div class="left-hide"></div>
+                <div class="carousel__pages"><p></p></div>
+                <div class="carousel__container">
+                    <div class="slide slide-first">
+                        <p>Ez az első slide!</p>
+                    </div>
+                    <div class="slide slide-second">
+                        <p>Ez a második slide</p>
+                    </div>
+                    <div class="slide slide-third">
+                        <p>Ez a harmadik slide</p>
+                    </div>
+                </div>
+                <div class="right-hide"></div>
+                <div class="carousel__bullets"></div>
+            </div>
+            <div class="carousel__next">></div>
+            <div class="carousel__prev"><</div>
+        </div>
+    <script src="javascript/main.js"></script>
+    </body>
+</html>
